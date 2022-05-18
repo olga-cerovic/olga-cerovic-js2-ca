@@ -1,0 +1,39 @@
+/* .message.error {
+    border-color: red;
+    color: white;
+    background: red;
+} */
+
+.fa {
+  color: red;
+  border-color: black;
+}
+
+/* .active {
+  color: darkred;
+} */
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.article {
+  margin: 1rem;
+  padding: 1rem;
+  background: whitesmoke;
+  border: 2px solid black;
+  width: 300px;
+  position: relative;
+}
+
+.search {
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
