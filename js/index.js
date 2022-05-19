@@ -12,7 +12,6 @@ const articlesURL = baseUrl + "articles";
 
     articleContainer.innerHTML = "";
 
-    // throw "Fiona is to blame";
 
     json.forEach(function (article) {
       articleContainer.innerHTML += `<div class="article">
@@ -34,17 +33,14 @@ const articlesURL = baseUrl + "articles";
   });
 
   function handleClick(event) {
-    // console.log(event);
     event.target.classList.toggle("fa");
     event.target.classList.toggle("far");
 
     const id = event.target.dataset.id;
     const title = event.target.dataset.title;
 
-    // console.log("id", id);
 
     const currentFaves = getExistingFaves();
-    // console.log(currentFaves);
 
     const articleExists = currentFaves.find(function (fave) {
       return fave.id === id;
@@ -61,16 +57,10 @@ const articlesURL = baseUrl + "articles";
       saveFaves(newFaves);
     }
 
-    // const article = { id: id, title: title };
-
-    // currentFaves.push(article);
-
-    // saveFaves(currentFaves);
   }
 
   function getExistingFaves() {
     const faves = localStorage.getItem("favorites");
-    // console.log(faves);
 
     if (faves === null) {
       return [];
