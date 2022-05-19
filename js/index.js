@@ -1,3 +1,4 @@
+import { getExistingFaves } from "./settings/utils/faveFunction.js";
 import { baseUrl } from "./settings/api.js";
 import displayMessage from "./settings/components/common/displayMessage.js";
 
@@ -11,7 +12,6 @@ const articlesURL = baseUrl + "articles";
     const json = await response.json();
 
     articleContainer.innerHTML = "";
-
 
     json.forEach(function (article) {
       articleContainer.innerHTML += `<div class="article">
@@ -39,7 +39,6 @@ const articlesURL = baseUrl + "articles";
     const id = event.target.dataset.id;
     const title = event.target.dataset.title;
 
-
     const currentFaves = getExistingFaves();
 
     const articleExists = currentFaves.find(function (fave) {
@@ -56,18 +55,17 @@ const articlesURL = baseUrl + "articles";
       const newFaves = currentFaves.filter((fave) => fave.id !== id);
       saveFaves(newFaves);
     }
-
   }
 
-  function getExistingFaves() {
-    const faves = localStorage.getItem("favorites");
+  // function getExistingFaves() {
+  //   const faves = localStorage.getItem("favorites");
 
-    if (faves === null) {
-      return [];
-    } else {
-      return JSON.parse(faves);
-    }
-  }
+  //   if (faves === null) {
+  //     return [];
+  //   } else {
+  //     return JSON.parse(faves);
+  //   }
+  // }
 
   function saveFaves(faves) {
     localStorage.setItem("favorites", JSON.stringify(faves));
