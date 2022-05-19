@@ -35,5 +35,7 @@ const articlesURL = baseUrl + "articles";
 
   function handleClick(event) {
     console.log(event);
+    event.target.classList.toggle("fa");
+    event.target.classList.toggle("far");
   }
 })();
