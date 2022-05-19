@@ -7,6 +7,8 @@ const articlesURL = baseUrl + "articles";
 (async function () {
   const articleContainer = document.querySelector(".article-container");
 
+  const favorites = getExistingFaves();
+
   try {
     const response = await fetch(articlesURL);
     const json = await response.json();
@@ -14,11 +16,25 @@ const articlesURL = baseUrl + "articles";
     articleContainer.innerHTML = "";
 
     json.forEach(function (article) {
+      let cssClass = "far";
+
+      const doesObjectExist = favorites.find(function (fave) {
+        console.log(fave);
+
+        return parseInt(fave.id) === article.id;
+      });
+
+      console.log(doesObjectExist);
+
+      if (doesObjectExist) {
+        cssClass = "fa";
+      }
+
       articleContainer.innerHTML += `<div class="article">
                                             <h3>${article.title}</h3>
                                             <p>${article.author}</p>
                                             <p>${article.summary}</p>
-                                            <i class="far fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
+                                            <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
                                         </div>`;
     });
   } catch (error) {
@@ -56,16 +72,6 @@ const articlesURL = baseUrl + "articles";
       saveFaves(newFaves);
     }
   }
-
-  // function getExistingFaves() {
-  //   const faves = localStorage.getItem("favorites");
-
-  //   if (faves === null) {
-  //     return [];
-  //   } else {
-  //     return JSON.parse(faves);
-  //   }
-  // }
 
   function saveFaves(faves) {
     localStorage.setItem("favorites", JSON.stringify(faves));
