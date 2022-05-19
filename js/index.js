@@ -19,7 +19,7 @@ const articlesURL = baseUrl + "articles";
                                             <h3>${article.title}</h3>
                                             <p>${article.author}</p>
                                             <p>${article.summary}</p>
-                                            <i class="far fa-heart"></i>
+                                            <i class="far fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
                                         </div>`;
     });
   } catch (error) {
@@ -34,8 +34,37 @@ const articlesURL = baseUrl + "articles";
   });
 
   function handleClick(event) {
-    console.log(event);
+    // console.log(event);
     event.target.classList.toggle("fa");
     event.target.classList.toggle("far");
+
+    const id = event.target.dataset.id;
+    const title = event.target.dataset.title;
+
+    // console.log("id", id);
+
+    const currentFaves = getExistingFaves();
+    // console.log(currentFaves);
+
+    const article = { id: id, title: title };
+
+    currentFaves.push(article);
+
+    saveFaves(currentFaves);
+  }
+
+  function getExistingFaves() {
+    const faves = localStorage.getItem("favorites");
+    // console.log(faves);
+
+    if (faves === null) {
+      return [];
+    } else {
+      return JSON.parse(faves);
+    }
+  }
+
+  function saveFaves(faves) {
+    localStorage.setItem("favorites", JSON.stringify(faves));
   }
 })();
