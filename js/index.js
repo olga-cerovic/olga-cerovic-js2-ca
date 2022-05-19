@@ -46,11 +46,26 @@ const articlesURL = baseUrl + "articles";
     const currentFaves = getExistingFaves();
     // console.log(currentFaves);
 
-    const article = { id: id, title: title };
+    const articleExists = currentFaves.find(function (fave) {
+      return fave.id === id;
+    });
 
-    currentFaves.push(article);
+    if (articleExists === undefined) {
+      const article = { id: id, title: title };
 
-    saveFaves(currentFaves);
+      currentFaves.push(article);
+
+      saveFaves(currentFaves);
+    } else {
+      const newFaves = currentFaves.filter((fave) => fave.id !== id);
+      saveFaves(newFaves);
+    }
+
+    // const article = { id: id, title: title };
+
+    // currentFaves.push(article);
+
+    // saveFaves(currentFaves);
   }
 
   function getExistingFaves() {
