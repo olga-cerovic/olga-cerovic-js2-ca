@@ -1,0 +1,1 @@
+function saveToStorage(key, value){}

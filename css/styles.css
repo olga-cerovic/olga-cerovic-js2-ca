@@ -4,6 +4,13 @@
     background: red;
 } */
 
+.message.warning {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  color: white;
+  background: orangered;
+}
+
 .fa {
   color: red;
   border-color: black;

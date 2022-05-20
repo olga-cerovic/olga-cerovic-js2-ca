@@ -11,7 +11,7 @@ const articlesURL = baseUrl + "articles";
 
   // const search = document.querySelector(".search");
 
-  // // let articlesToRender = articles;
+  // let articlesToRender = articles;
 
   // search.onkeyup = function (event) {
   //   // console.log(event);
@@ -46,7 +46,6 @@ const articlesURL = baseUrl + "articles";
         return parseInt(fave.id) === article.id;
       });
 
-      // console.log(doesObjectExist);
 
       if (doesObjectExist) {
         cssClass = "fa";
