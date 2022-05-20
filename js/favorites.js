@@ -1,7 +1,10 @@
 import { getExistingFaves } from "./settings/utils/faveFunction.js";
 import clearButton from "./settings/components/clearButton.js";
+import { createMenu } from "./settings/components/common/createMenu.js";
 
 export const favorites = getExistingFaves();
+
+createMenu();
 clearButton();
 
 const articleContainer = document.querySelector(".article-container");

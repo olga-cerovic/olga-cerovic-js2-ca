@@ -1,11 +1,14 @@
 import displayMessage from "./settings/components/common/displayMessage.js";
 import { saveToken, saveUser } from "./settings/utils/storage.js";
 import { baseUrl } from "./settings/api.js";
+import { createMenu } from "./settings/components/common/createMenu.js";
 
 const form = document.querySelector("form");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 const message = document.querySelector(".message-container");
+
+createMenu();
 
 form.addEventListener("submit", submitForm);
 

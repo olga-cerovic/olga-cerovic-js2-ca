@@ -1,8 +1,12 @@
 import { getExistingFaves } from "./settings/utils/faveFunction.js";
 import { baseUrl } from "./settings/api.js";
 import displayMessage from "./settings/components/common/displayMessage.js";
+import { createMenu } from "./settings/components/common/createMenu.js";
 
 const articlesURL = baseUrl + "articles";
+
+createMenu();
+
 
 (async function () {
   const articleContainer = document.querySelector(".article-container");
@@ -46,7 +50,6 @@ const articlesURL = baseUrl + "articles";
         return parseInt(fave.id) === article.id;
       });
 
-
       if (doesObjectExist) {
         cssClass = "fa";
       }
@@ -59,7 +62,7 @@ const articlesURL = baseUrl + "articles";
                                         </div>`;
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     displayMessage("error", error, ".article-container");
   }
 
@@ -98,3 +101,4 @@ const articlesURL = baseUrl + "articles";
     localStorage.setItem("favorites", JSON.stringify(faves));
   }
 })();
+
