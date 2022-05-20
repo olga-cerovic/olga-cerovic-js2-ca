@@ -16,9 +16,10 @@
   border-color: black;
 }
 
-/* .active {
-  color: darkred;
-} */
+.active {
+  color: green;
+  font-weight: bold;
+}
 
 .container {
   max-width: 900px;
