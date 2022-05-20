@@ -12,7 +12,10 @@ export function createMenu() {
   ]}">Login</a>`;
 
   if (username) {
-    authLink = `<span>Hi ${username}</span>`;
+    authLink = `<a href="add.html" class="${[
+      pathname === "/add.html" ? "active" : "",
+    ]}">Add Article</a>
+                    <span>Hi ${username}</span>`;
   }
 
   menuContainer.innerHTML = `<div class="menu">
