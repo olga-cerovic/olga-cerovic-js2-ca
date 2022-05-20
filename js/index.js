@@ -4,63 +4,66 @@ import displayMessage from "./settings/components/common/displayMessage.js";
 import { createMenu } from "./settings/components/common/createMenu.js";
 
 const articlesURL = baseUrl + "articles";
+const articleContainer = document.querySelector(".article-container");
+
+let articles = [];
 
 createMenu();
 
-
 (async function () {
-  const articleContainer = document.querySelector(".article-container");
-
   ////////////////////////////////////////////////////
 
-  // const search = document.querySelector(".search");
+  const search = document.querySelector(".search");
 
   // let articlesToRender = articles;
 
-  // search.onkeyup = function (event) {
-  //   // console.log(event);
+  search.onkeyup = function (event) {
+    // console.log(event);
 
-  //   const searchValue = event.target.value.trim().toLowerCase();
+    const searchValue = event.target.value.trim().toLowerCase();
 
-  //   const filteredArticles = articles.filter(function (article) {
-  //     if (article.title.toLowerCase().startsWith(searchValue)) {
-  //       return true;
-  //     }
-  //   });
+    const filteredArticles = articles.filter(function (article) {
+      console.log(article);
+      if (article.title.toLowerCase().includes(searchValue)) {
+        return article;
+      }
+    });
 
-  //   console.log(filteredArticles);
-  // };
+    console.log(filteredArticles);
+
+    createHtml(filteredArticles);
+  };
 
   //////////////////////////////////////////////
 
-  const favorites = getExistingFaves();
-
   try {
     const response = await fetch(articlesURL);
-    const json = await response.json();
+    articles = await response.json();
 
-    articleContainer.innerHTML = "";
+    createHtml(articles);
 
-    json.forEach(function (article) {
-      let cssClass = "far";
+    // articleContainer.innerHTML = "";
 
-      const doesObjectExist = favorites.find(function (fave) {
-        console.log(fave);
+    // articles.forEach(function (article) {
+    //   let cssClass = "far";
 
-        return parseInt(fave.id) === article.id;
-      });
+    //   const doesObjectExist = favorites.find(function (fave) {
+    //     console.log(fave);
 
-      if (doesObjectExist) {
-        cssClass = "fa";
-      }
+    //     return parseInt(fave.id) === article.id;
+    //   });
 
-      articleContainer.innerHTML += `<div class="article">
-                                            <h3>${article.title}</h3>
-                                            <p>${article.author}</p>
-                                            <p>${article.summary}</p>
-                                            <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
-                                        </div>`;
-    });
+    //   if (doesObjectExist) {
+    //     cssClass = "fa";
+    //   }
+
+    //   articleContainer.innerHTML += `<div class="article">
+    //                                         <h3>${article.title}</h3>
+    //                                         <p>${article.author}</p>
+    //                                         <p>${article.summary}</p>
+    //                                         <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
+    //                                     </div>`;
+    // });
   } catch (error) {
     // console.log(error);
     displayMessage("error", error, ".article-container");
@@ -102,3 +105,29 @@ createMenu();
   }
 })();
 
+const createHtml = (data) => {
+  articleContainer.innerHTML = "";
+
+  data.forEach(function (article) {
+    let cssClass = "far";
+
+    const favorites = getExistingFaves();
+
+    const doesObjectExist = favorites.find(function (fave) {
+      console.log(fave);
+
+      return parseInt(fave.id) === article.id;
+    });
+
+    if (doesObjectExist) {
+      cssClass = "fa";
+    }
+
+    articleContainer.innerHTML += `<div class="article">
+                                          <h3>${article.title}</h3>
+                                          <p>${article.author}</p>
+                                          <p>${article.summary}</p>
+                                          <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
+                                      </div>`;
+  });
+};

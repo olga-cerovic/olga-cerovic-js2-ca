@@ -7,7 +7,13 @@ export function createMenu() {
 
   const username = getUserName();
 
-//   let authLink =
+//   let authLink = `<a href="login.html" class="${[
+//     pathname === "/login.html" ? "active" : "",
+//   ]}">Login</a>`;
+
+//   if(username) {
+//       authLink =
+//   }
 
   menuContainer.innerHTML = `<div class="menu">
                                 <a href="/" class="${[
