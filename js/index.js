@@ -7,6 +7,28 @@ const articlesURL = baseUrl + "articles";
 (async function () {
   const articleContainer = document.querySelector(".article-container");
 
+  ////////////////////////////////////////////////////
+
+  // const search = document.querySelector(".search");
+
+  // // let articlesToRender = articles;
+
+  // search.onkeyup = function (event) {
+  //   // console.log(event);
+
+  //   const searchValue = event.target.value.trim().toLowerCase();
+
+  //   const filteredArticles = articles.filter(function (article) {
+  //     if (article.title.toLowerCase().startsWith(searchValue)) {
+  //       return true;
+  //     }
+  //   });
+
+  //   console.log(filteredArticles);
+  // };
+
+  //////////////////////////////////////////////
+
   const favorites = getExistingFaves();
 
   try {
@@ -24,7 +46,7 @@ const articlesURL = baseUrl + "articles";
         return parseInt(fave.id) === article.id;
       });
 
-      console.log(doesObjectExist);
+      // console.log(doesObjectExist);
 
       if (doesObjectExist) {
         cssClass = "fa";

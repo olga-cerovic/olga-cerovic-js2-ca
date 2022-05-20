@@ -1,6 +1,8 @@
 import { getExistingFaves } from "./settings/utils/faveFunction.js";
+import clearButton from "./settings/components/clearButton.js";
 
-const favorites = getExistingFaves();
+export const favorites = getExistingFaves();
+clearButton();
 
 const articleContainer = document.querySelector(".article-container");
 
