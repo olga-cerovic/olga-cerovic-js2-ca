@@ -7,13 +7,13 @@ export function createMenu() {
 
   const username = getUserName();
 
-//   let authLink = `<a href="login.html" class="${[
-//     pathname === "/login.html" ? "active" : "",
-//   ]}">Login</a>`;
+  let authLink = `<a href="login.html" class="${[
+    pathname === "/login.html" ? "active" : "",
+  ]}">Login</a>`;
 
-//   if(username) {
-//       authLink =
-//   }
+  if (username) {
+    authLink = `<span>Hi ${username}</span>`;
+  }
 
   menuContainer.innerHTML = `<div class="menu">
                                 <a href="/" class="${[
@@ -24,8 +24,6 @@ export function createMenu() {
                                     ? "active"
                                     : "",
                                 ]}">Favorites</a>
-                                <a href="login.html" class="${[
-                                  pathname === "/login.html" ? "active" : "",
-                                ]}">Login</a>
+                                ${authLink}
                             </div>`;
 }
