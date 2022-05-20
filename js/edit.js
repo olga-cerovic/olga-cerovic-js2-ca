@@ -94,6 +94,15 @@ async function updateArticle(title, author, summary, id) {
     const response = await fetch(url, options);
     const json = await response.json();
     console.log(json);
+
+    if (json.updated_at) {
+      displayMessage("success", "Article updated.", ".message-container");
+    }
+
+    if(json.error) {
+        displayMessage("error", json.message, ".message-container");
+
+    }
   } catch (error) {
     console.log(error);
   }
