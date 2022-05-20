@@ -7,7 +7,9 @@ export function createMenu() {
 
   const username = getUserName();
 
-  let authLink = (menuContainer.innerHTML = `<div class="menu">
+//   let authLink =
+
+  menuContainer.innerHTML = `<div class="menu">
                                 <a href="/" class="${[
                                   pathname === "/" ? "active" : "",
                                 ]}">Home</a>
@@ -19,5 +21,5 @@ export function createMenu() {
                                 <a href="login.html" class="${[
                                   pathname === "/login.html" ? "active" : "",
                                 ]}">Login</a>
-                            </div>`);
+                            </div>`;
 }
