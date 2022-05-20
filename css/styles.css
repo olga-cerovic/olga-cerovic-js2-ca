@@ -1,8 +1,12 @@
-/* .message.error {
-    border-color: red;
-    color: white;
-    background: red;
-} */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: whitesmoke;
+  font-family: sans-serif;
+  padding: 2rem;
+}
 
 .message.warning {
   padding: 0.7rem;
@@ -17,8 +21,7 @@
 }
 
 .active {
-  color: green;
-  font-weight: bold;
+  color: green !important;
 }
 
 .container {
@@ -29,20 +32,23 @@
 .article-container {
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 2.5rem;
+  padding-top: 1rem;
 }
 
 .article-outer-container {
   margin: 1rem;
   padding: 1rem;
-  background: whitesmoke;
-  border: 2px solid black;
+  background: #cad9b8;
+  border: 1px solid black;
+  border-radius: 0.2rem;
   width: 300px;
   position: relative;
 }
 
 .search {
-  margin-top: 1.8rem;
-  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
   padding: 0.5rem;
 }
 
@@ -53,4 +59,80 @@
 
 .edit-form {
   display: none;
+}
+
+/*New styles*/
+
+label {
+  display: block;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+form input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  background: olive;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  padding-right: 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.message {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid grey;
+  color: grey;
+}
+
+.message.error {
+  border-color: red;
+  color: white;
+  background: red;
+}
+
+.message.warning {
+  border-color: orange;
+  color: white;
+  background: orange;
+}
+
+.message.success {
+  border-color: green;
+  color: white;
+  background: green;
+}
+
+.edit-form {
+  display: none;
+}
+
+.delete {
+  background: darkred;
 }

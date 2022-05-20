@@ -1,5 +1,5 @@
 import { getExistingFaves } from "./settings/utils/faveFunction.js";
-import clearButton from "./settings/components/clearButton.js";
+import clearButton from "./settings/utils/clearButton.js";
 import { createMenu } from "./settings/components/common/createMenu.js";
 
 export const favorites = getExistingFaves();
@@ -14,7 +14,7 @@ if (favorites.length === 0) {
 }
 
 favorites.forEach((favorite) => {
-  articleContainer.innerHTML += `<div class="article">
+  articleContainer.innerHTML += `<div class="article-outer-container">
                                         <h3>${favorite.title}</h3>
                                         <i class="fa fa-heart"></i>
                                     </div>`;

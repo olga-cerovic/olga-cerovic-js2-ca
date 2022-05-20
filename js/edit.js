@@ -2,6 +2,7 @@ import { baseUrl } from "./settings/api.js";
 import displayMessage from "./settings/components/common/displayMessage.js";
 import { createMenu } from "./settings/components/common/createMenu.js";
 import { getToken } from "./settings/utils/storage.js";
+import { deleteButton } from "./settings/utils/deleteButton.js";
 
 createMenu();
 
@@ -34,6 +35,8 @@ const loading = document.querySelector(".loading");
     author.value = details.author;
     summary.value = details.summary;
     idInput.value = details.id;
+
+    deleteButton(details.id);
 
     console.log(details);
   } catch (error) {
@@ -99,9 +102,8 @@ async function updateArticle(title, author, summary, id) {
       displayMessage("success", "Article updated.", ".message-container");
     }
 
-    if(json.error) {
-        displayMessage("error", json.message, ".message-container");
-
+    if (json.error) {
+      displayMessage("error", json.message, ".message-container");
     }
   } catch (error) {
     console.log(error);
