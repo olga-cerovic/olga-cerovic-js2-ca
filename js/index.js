@@ -34,42 +34,16 @@ createMenu();
     createHtml(filteredArticles);
   };
 
-  //////////////////////////////////////////////
-
   try {
     const response = await fetch(articlesURL);
     articles = await response.json();
 
     createHtml(articles);
-
-    // articleContainer.innerHTML = "";
-
-    // articles.forEach(function (article) {
-    //   let cssClass = "far";
-
-    //   const doesObjectExist = favorites.find(function (fave) {
-    //     console.log(fave);
-
-    //     return parseInt(fave.id) === article.id;
-    //   });
-
-    //   if (doesObjectExist) {
-    //     cssClass = "fa";
-    //   }
-
-    //   articleContainer.innerHTML += `<div class="article">
-    //                                         <h3>${article.title}</h3>
-    //                                         <p>${article.author}</p>
-    //                                         <p>${article.summary}</p>
-    //                                         <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
-    //                                     </div>`;
-    // });
   } catch (error) {
-    // console.log(error);
     displayMessage("error", error, ".article-container");
   }
 
-  const faveButtons = document.querySelectorAll(".article i");
+  const faveButtons = document.querySelectorAll(".article-outer-container i");
 
   faveButtons.forEach((button) => {
     button.addEventListener("click", handleClick);
@@ -123,11 +97,13 @@ const createHtml = (data) => {
       cssClass = "fa";
     }
 
-    articleContainer.innerHTML += `<div class="article">
+    articleContainer.innerHTML += `<div class="article-outer-container">
+                                      <a class="article" href="edit.html?id=${article.id}">
                                           <h3>${article.title}</h3>
                                           <p>${article.author}</p>
                                           <p>${article.summary}</p>
-                                          <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
-                                      </div>`;
+                                      </a>
+                                      <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>
+                                    </div>`;
   });
 };

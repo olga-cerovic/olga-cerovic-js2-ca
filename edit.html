@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,=" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu-container"></div>
+      <h1>Edit Product</h1>
+
+      <div class="loading">Loading product...</div>
+
+      <form class="edit-form">
+        <div class="message-container"></div>
+
+        <div>
+          <label for="title">Title</label>
+          <input id="title" />
+        </div>
+        <div>
+          <label for="author">Author</label>
+          <input id="author" />
+        </div>
+        <div>
+          <label for="summary">Summary</label>
+          <textarea id="summary"></textarea>
+        </div>
+
+        <input id="id" />
+
+        <div>
+          <button id="update">Update</button>
+        </div>
+      </form>
+    </div>
+    <script src="js/edit.js" type="module"></script>
+  </body>
+</html>

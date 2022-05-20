@@ -31,7 +31,7 @@
   flex-wrap: wrap;
 }
 
-.article {
+.article-outer-container {
   margin: 1rem;
   padding: 1rem;
   background: whitesmoke;
@@ -44,4 +44,9 @@
   margin-top: 1.8rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
+}
+
+.article {
+  text-decoration: none;
+  color: black;
 }
