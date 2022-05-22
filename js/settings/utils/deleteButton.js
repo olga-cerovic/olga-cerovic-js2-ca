@@ -36,25 +36,5 @@ export function deleteButton(id) {
         console.log(error);
       }
     }
-
-    // const url = baseUrl + "articles/" + id;
-
-    // const token = getToken();
-
-    // const options = {
-    //   method: "DELETE",
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // };
-
-    // try {
-    //   const response = await fetch(url, options);
-    //   const json = await response.json();
-
-    //   console.log(json);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 }

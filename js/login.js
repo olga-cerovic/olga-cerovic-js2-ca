@@ -24,8 +24,6 @@ function submitForm(event) {
     return displayMessage("warning", "Invalid values", ".message-container");
   }
 
-  //   console.log("mjau");
-
   doLogin(usernameValue, passwordValue);
 }
 
@@ -49,8 +47,6 @@ async function doLogin(username, password) {
     console.log(json);
 
     if (json.user) {
-      //   displayMessage("success", "You are now logged in", ".message-container");
-
       saveToken(json.jwt);
       saveUser(json.user);
 

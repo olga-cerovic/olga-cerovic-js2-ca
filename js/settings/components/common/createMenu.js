@@ -15,7 +15,7 @@ export function createMenu() {
     authLink = `<a href="add.html" class="${[
       pathname === "/add.html" ? "active" : "",
     ]}">Add Article</a>
-                    <span>Hi ${username}</span>`;
+                    <span class="greeting">Hi, ${username}</span>`;
   }
 
   menuContainer.innerHTML = `<div class="menu">

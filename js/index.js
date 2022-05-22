@@ -11,15 +11,9 @@ let articles = [];
 createMenu();
 
 (async function () {
-  ////////////////////////////////////////////////////
-
   const search = document.querySelector(".search");
 
-  // let articlesToRender = articles;
-
   search.onkeyup = function (event) {
-    // console.log(event);
-
     const searchValue = event.target.value.trim().toLowerCase();
 
     const filteredArticles = articles.filter(function (article) {
@@ -100,7 +94,7 @@ const createHtml = (data) => {
     articleContainer.innerHTML += `<div class="article-outer-container">
                                       <a class="article" href="edit.html?id=${article.id}">
                                           <h3>${article.title}</h3>
-                                          <p>${article.author}</p>
+                                          <p class="author">${article.author}</p>
                                           <p>${article.summary}</p>
                                       </a>
                                       <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${article.title}"></i>

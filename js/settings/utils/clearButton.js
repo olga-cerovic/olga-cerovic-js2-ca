@@ -12,12 +12,5 @@ export default function clearButton() {
     localStorage.clear();
 
     articleContainer.innerHTML = "Favorites removed";
-
-    // if (favorites.length === 0) {
-    //   articleContainer.innerHTML =
-    //     "There are currently no favorites to display.";
-    // }
-
-    // getExistingFaves([]);
   }
 }
